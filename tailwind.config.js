@@ -5,10 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        nunito: "'Nunito', sans-serif", // Adds a new `font-nunito` class
+      }
+    },
   },
   plugins: [require("daisyui")],
-
+  
   daisyui: {
     themes: ["light"],
   },
