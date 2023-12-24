@@ -2,7 +2,6 @@ import { FaHouseChimney } from "react-icons/fa6";
 
 import { NavLink, Outlet } from "react-router-dom";
 
-import { FaUserShield } from "react-icons/fa6";
 import useUserInfo from "../hooks/useUserInfo";
 import { FaTasks } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
@@ -61,7 +60,7 @@ const Dashboard = () => {
                     <li><NavLink to="/">
                         <FaHouseChimney></FaHouseChimney>Home</NavLink>
                     </li>
-                    <li><NavLink to="/logout">
+                    <li className="text-red-700"><NavLink to="/logout">
                         <RiLogoutBoxFill></RiLogoutBoxFill>Logout</NavLink>
                     </li>
 
