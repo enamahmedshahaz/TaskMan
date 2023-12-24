@@ -1,6 +1,10 @@
 import { NavLink } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+
+    const { user, signOutUser } = useAuth();
 
     const navLinks =
         <>
@@ -12,15 +16,45 @@ const Navbar = () => {
                 <NavLink to={"/tasks"}>Tasks</NavLink>
             </li>
 
-            <li>
-                <NavLink to={"/login"}>Login</NavLink>
-            </li>
-            
-            <li>
-                <NavLink to={"/register"}>Register</NavLink>
-            </li>
-            
+            {
+                !user &&
+                <>
+                    <li>
+                        <NavLink to={"/login"}>Login</NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink to={"/register"}>Register</NavLink>
+                    </li>
+
+                </>
+            }
         </>;
+
+
+    const handleLogout = () => {
+
+        signOutUser()
+            .then(() => {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Sign-out successful",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
+            .catch(error => {
+                console.log(error);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "error",
+                    title: "Error while Sign-out!",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            });
+    }
 
     return (
         <div className="navbar bg-base-300">
@@ -41,7 +75,10 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Login</a>
+                {
+                    user &&
+                    <button className="btn btn-error" onClick={handleLogout}>Logout</button>
+                }
             </div>
         </div>
 
