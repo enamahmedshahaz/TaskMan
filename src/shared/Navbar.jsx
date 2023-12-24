@@ -13,9 +13,9 @@ const Navbar = () => {
             </li>
 
             <li>
-                <NavLink to={"/tasks"}>Tasks</NavLink>
+                <NavLink to={"/dashboard/ManageTasks"}>Manage Tasks</NavLink>
             </li>
-
+            
             {
                 !user &&
                 <>
@@ -30,7 +30,6 @@ const Navbar = () => {
                 </>
             }
         </>;
-
 
     const handleLogout = () => {
 

@@ -3,12 +3,15 @@ import {
 } from "react-router-dom";
 
 import Home from "../pages/Home/Home";
-import Tasks from "../pages/Tasks/Tasks";
-
 import Main from "../Layout/Main";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import PrivateRoutes from "./PrivateRoutes";
+import Dashboard from "../Layout/DashBoard";
+import ManageTasks from "../pages/DashBoard/ManageTasks/ManageTasks";
+import AddTask from "../pages/DashBoard/AddTask/AddTask";
+import EditTask from "../pages/DashBoard/EditTask/EditTask";
+
 
 export const router = createBrowserRouter([
     {
@@ -20,10 +23,6 @@ export const router = createBrowserRouter([
                 element: <Home></Home>,
             },
             {
-                path: "/tasks",
-                element: <PrivateRoutes><Tasks></Tasks></PrivateRoutes>,
-            },
-            {
                 path: "/login",
                 element: <Login></Login>
             },
@@ -33,4 +32,25 @@ export const router = createBrowserRouter([
             },
         ],
     },
+
+    {
+        path: "dashboard",
+        element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
+        children: [
+            {
+                path: "manageTasks",
+                element: <ManageTasks></ManageTasks>
+                // loader: ({ params }) => fetch(`localhost/${params.postId}`)
+            },
+            {
+                path: "addTask",
+                element: <AddTask></AddTask>,
+            },
+            {
+                path: "editTask",
+                element:  <EditTask></EditTask>,
+            },
+        ],
+    },
+
 ]);
