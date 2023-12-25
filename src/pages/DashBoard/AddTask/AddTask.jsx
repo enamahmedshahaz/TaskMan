@@ -37,7 +37,7 @@ const AddTask = () => {
             createdBy: userInfo?.email,
             createdAt: new Date(),
         }
-         console.log('postInfo: ', taskInfo);
+         console.log('taskInfo: ', taskInfo);
 
         const response = await axiosPublic.post('/tasks', taskInfo);
         if (response.data.insertedId) {
@@ -55,11 +55,11 @@ const AddTask = () => {
 
             <SectionTitle heading={'Create a new Task'} subHeading={'Create new tasks and manage your progress'}></SectionTitle>
 
-            <div className="p-20">
+            <div className="px-20">
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     {/* Title */}
-                    <div className="form-control w-full my-6">
+                    <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Task Title *</span>
                         </label>

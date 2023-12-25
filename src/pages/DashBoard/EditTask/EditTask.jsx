@@ -55,12 +55,11 @@ const EditTask = () => {
 
             <SectionTitle heading={'Edit Task'} subHeading={'Edit your task information'}></SectionTitle>
 
-            <div className="p-20">
+            <div className="px-20">
 
                 <form onSubmit={handleSubmit(onSubmit)}>
-
                     {/* Title */}
-                    <div className="form-control w-full my-6">
+                    <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Task Title *</span>
                         </label>
@@ -80,7 +79,7 @@ const EditTask = () => {
                         <label className="label">
                             <span className="label-text">Task Description *</span>
                         </label>
-                        <textarea defaultValue={description} {...register('description', { required: true })} className="textarea textarea-bordered h-24" placeholder="Description of your post"></textarea>
+                        <textarea defaultValue={description} {...register('description', { required: true })} className="textarea textarea-bordered h-24" placeholder="Description of your task"></textarea>
                         {errors.description?.type === "required" && (
                             <p className="text-red-600">Description  is required</p>
                         )}

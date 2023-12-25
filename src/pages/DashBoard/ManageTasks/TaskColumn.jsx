@@ -11,7 +11,6 @@ const TaskColumn = ({ type, title, tasksToLoad }) => {
 
     const [, , refetch] = useTasks();
 
-
     const [{ isOver }, drop] = useDrop(() => ({
         accept: 'task',
         drop: (task) => addTaskToColumn(task._id),
@@ -49,7 +48,7 @@ const TaskColumn = ({ type, title, tasksToLoad }) => {
         <div>
             <h2 className="text-2xl font-semibold text-center mb-1">{title} ({tasksToLoad?.length})</h2>
 
-            <div ref={drop} className={`${isOver ? 'bg-teal-100' : 'bg-gray-200'} w-60 h-screen rounded-md p-5 overflow-auto`}>
+            <div ref={drop} className={`${isOver ? 'bg-teal-100' : 'bg-gray-200'} w-60 h-[600px] rounded-md p-5 overflow-auto`}>
                 <div className='flex flex-col gap-2'>
                     {
                         tasksToLoad?.map((task, index) => <Task key={index} task={task}></Task>)

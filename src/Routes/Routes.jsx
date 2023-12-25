@@ -12,7 +12,6 @@ import ManageTasks from "../pages/DashBoard/ManageTasks/ManageTasks";
 import AddTask from "../pages/DashBoard/AddTask/AddTask";
 import EditTask from "../pages/DashBoard/EditTask/EditTask";
 
-
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -47,9 +46,9 @@ export const router = createBrowserRouter([
             },
             {
                 path: "editTask/:id",
-                element:  <EditTask></EditTask>,
-                loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`),
-
+                element: <EditTask></EditTask>,
+                // loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`),
+                loader: ({ params }) => fetch(`https://taskman-server-delta.vercel.app/tasks/${params.id}`),
             },
         ],
     },
