@@ -1,20 +1,40 @@
+import { useEffect, useState } from "react";
+import useTasks from "../../../hooks/useTasks";
+import TaskColumn from "./TaskColumn";
+
+
+
 const ManageTasks = () => {
+
+    const [tasks, isTasksLoading, refetch] = useTasks();
+    
+    const [todo, setTodo] = useState([]);
+    const [ongoing, setOngoing] = useState([]);
+    const [completed, setCompleted] = useState([]);
+
+    useEffect(() => {
+
+        if (!isTasksLoading) {
+            const filterTodo = tasks?.filter(task => task.status === 'todo');
+            const filterOngoing = tasks?.filter(task => task.status === 'ongoing');
+            const filterCompleted = tasks?.filter(task => task.status === 'completed');
+
+            setTodo(filterTodo);
+            setOngoing(filterOngoing);
+            setCompleted(filterCompleted);
+        }
+
+    },[tasks]);
+
     return (
         <div className="bg-blue-300 min-h-screen">
 
-            <div className="p-10 flex justify-around items-center">
+            <div className="p-10 flex justify-around items-start ">
 
-                <div className="w-60 h-96 bg-gray-200 rounded-sm p-5">
-                    <h2 className="text-xl font-semibold">Todo</h2>
-                </div>
+                <TaskColumn type="todo" title="Todo" tasksToLoad={todo}></TaskColumn>
+                <TaskColumn type="ongoing" title="On-going" tasksToLoad={ongoing}></TaskColumn>
+                <TaskColumn type="todo" title="Completed" tasksToLoad={completed}></TaskColumn>
 
-                <div className="w-60 h-96 bg-gray-200 rounded-sm p-5">
-                    <h2 className="text-xl font-semibold">On-going</h2>
-                </div>
-
-                <div className="w-60 h-96 bg-gray-200 rounded-sm p-5">
-                    <h2 className="text-xl font-semibold">Completed</h2>
-                </div>
             </div>
 
         </div>

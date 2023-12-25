@@ -6,6 +6,7 @@ import useUserInfo from "../hooks/useUserInfo";
 import { FaTasks } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { RiLogoutBoxFill } from "react-icons/ri";
+import { Toaster } from 'react-hot-toast';
 
 
 
@@ -69,6 +70,7 @@ const Dashboard = () => {
 
             {/* dashboard content */}
             <div className="flex-1">
+                <Toaster></Toaster>
                 <Outlet></Outlet>
             </div>
         </div>

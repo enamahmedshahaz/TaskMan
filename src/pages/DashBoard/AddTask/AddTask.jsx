@@ -9,6 +9,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 
 const AddTask = () => {
@@ -42,13 +43,7 @@ const AddTask = () => {
         if (response.data.insertedId) {
             reset();
             navigate('/dashboard/manageTasks');
-            Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: `${data.title} - Task added.`,
-                showConfirmButton: false,
-                timer: 1500
-            });
+            toast.success('Task Added!')
         }
     }
 
@@ -124,9 +119,8 @@ const AddTask = () => {
                             <p className="text-red-600">Priority is required</p>
                         )}
                     </div>
-
-
-
+                    
+                    
                     <button className="btn btn-primary">
                         Add Task <FaPlus></FaPlus>
                     </button>
