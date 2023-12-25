@@ -92,7 +92,6 @@ const Task = ({ task }) => {
                 <button onClick={() => handleEdit(id)} className="btn btn-xs  btn-outline btn-primary">Edit</button>
                 <button onClick={() => handleDelete(id)} className="btn btn-xs  btn-outline btn-error">Delete</button>
             </div>
-
         </div>
     );
 };
