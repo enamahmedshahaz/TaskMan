@@ -5,7 +5,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import useUserInfo from "../hooks/useUserInfo";
 import { FaTasks } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
-import { RiLogoutBoxFill } from "react-icons/ri";
+// import { RiLogoutBoxFill } from "react-icons/ri";
 import { Toaster } from 'react-hot-toast';
 
 
@@ -61,9 +61,9 @@ const Dashboard = () => {
                     <li><NavLink to="/">
                         <FaHouseChimney></FaHouseChimney>Home</NavLink>
                     </li>
-                    <li className="text-red-700"><NavLink to="/logout">
+                    {/* <li className="text-red-700"><NavLink to="/logout">
                         <RiLogoutBoxFill></RiLogoutBoxFill>Logout</NavLink>
-                    </li>
+                    </li> */}
 
                 </ul>
             </div>
