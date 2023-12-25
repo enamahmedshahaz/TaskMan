@@ -84,7 +84,7 @@ const Task = ({ task }) => {
             }
             <p className='text-sm text-gray-500'>{description}</p>
 
-            <p>Deadline: {moment(deadline).format("Do MMM YY")}</p>
+            <p className='font-medium text-sm text-gray-600'>Deadline: {moment(deadline).format("Do MMM YY")}</p>
 
             <div className="divider m-0"></div>
 

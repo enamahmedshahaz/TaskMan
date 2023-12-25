@@ -13,7 +13,7 @@ const Banner = () => {
                         <h2 className='text-6xl font-bold'>Kickstart Your Productivity!</h2>
                         <p>Plan your day with precision. Organize tasks in the To-Do banner to ensure nothing slips through the cracks. Your journey to productivity starts here!</p>
                         <div>
-                            <Link to="/login" ><button className="btn btn-primary mr-5">Let’s Explore</button></Link>
+                            <Link to="/dashboard/ManageTasks" ><button className="btn btn-primary mr-5">Let’s Explore</button></Link>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@ const Banner = () => {
                         <h2 className='text-6xl font-bold'>Power through Progress!</h2>
                         <p>Witness your tasks come to life in the In Progress banner. Move seamlessly between ongoing projects and keep the momentum going. Stay in control, stay ahead!</p>
                         <div>
-                            <Link to="/login" ><button className="btn btn-primary mr-5">Let’s Explore</button></Link>
+                            <Link to="/dashboard/ManageTasks" ><button className="btn btn-primary mr-5">Let’s Explore</button></Link>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@ const Banner = () => {
                         <h2 className='text-6xl font-bold'>Celebrate Achievements!</h2>
                         <p>Bask in the glow of success! The Completed banner is your wall of triumph. Showcase your completed tasks and relish the satisfaction of a job well done. Ready to make your mark?</p>
                         <div>
-                            <Link to="/login" ><button className="btn btn-primary mr-5">Let’s Explore </button></Link>
+                            <Link to="/dashboard/ManageTasks" ><button className="btn btn-primary mr-5">Let’s Explore </button></Link>
                         </div>
                     </div>
                 </div>
