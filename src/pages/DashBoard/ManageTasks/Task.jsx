@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import useTasks from '../../../hooks/useTasks';
 import toast from 'react-hot-toast';
+import { useDrag } from 'react-dnd';
 
 
 const Task = ({ task }) => {
@@ -12,6 +13,15 @@ const Task = ({ task }) => {
     const axiosPublic = useAxiosPublic();
 
     const [, , refetch] = useTasks();
+
+
+    const [{ isDragging }, drag] = useDrag(() => ({
+        type: 'task',
+        item: task,
+        collect: (monitor) => ({
+            isDragging: !!monitor.isDragging()
+        })
+    }));
 
 
     const handleDelete = (id) => {
@@ -50,7 +60,7 @@ const Task = ({ task }) => {
 
     return (
 
-        <div className="bg-orange-200 rounded-md p-4">
+        <div ref={drag} className={`${isDragging ? 'opacity-5' : 'opacity-100'} bg-orange-200 rounded-md p-4 cursor-grab`}>
             <h3 className="font-bold">{title}</h3>
             {
                 priority === 'low' ?

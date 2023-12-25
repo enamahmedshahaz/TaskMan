@@ -70,7 +70,10 @@ const Dashboard = () => {
 
             {/* dashboard content */}
             <div className="flex-1">
-                <Toaster></Toaster>
+                <Toaster
+                    position="top-right"
+                    reverseOrder={false}
+                />
                 <Outlet></Outlet>
             </div>
         </div>
