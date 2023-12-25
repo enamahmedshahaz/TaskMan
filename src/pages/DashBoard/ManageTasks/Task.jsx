@@ -4,6 +4,7 @@ import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import useTasks from '../../../hooks/useTasks';
 import toast from 'react-hot-toast';
 import { useDrag } from 'react-dnd';
+import { useNavigate } from 'react-router-dom';
 
 
 const Task = ({ task }) => {
@@ -11,6 +12,7 @@ const Task = ({ task }) => {
     const { _id: id, title, description, priority, deadline } = task;
 
     const axiosPublic = useAxiosPublic();
+    const navigate = useNavigate();
 
     const [, , refetch] = useTasks();
 
@@ -58,6 +60,10 @@ const Task = ({ task }) => {
         });
     }
 
+    const handleEdit = (id) => {
+        navigate(`/dashboard/editTask/${id}`);
+    }
+
     return (
 
         <div ref={drag} className={`${isDragging ? 'opacity-5' : 'opacity-100'} bg-orange-200 rounded-md p-4 cursor-grab`}>
@@ -71,9 +77,10 @@ const Task = ({ task }) => {
                         <div className="badge badge-warning gap-2">
                             Moderate
                         </div> :
-                        <div className="badge badge-error gap-2">
-                            High
-                        </div>
+                        priority === 'high' ?
+                            <div className="badge badge-error gap-2">
+                                High
+                            </div> : <div></div>
             }
             <p className='text-sm text-gray-500'>{description}</p>
 
@@ -82,7 +89,7 @@ const Task = ({ task }) => {
             <div className="divider m-0"></div>
 
             <div className='flex justify-around'>
-                <button className="btn btn-xs  btn-outline btn-primary">Edit</button>
+                <button onClick={() => handleEdit(id)} className="btn btn-xs  btn-outline btn-primary">Edit</button>
                 <button onClick={() => handleDelete(id)} className="btn btn-xs  btn-outline btn-error">Delete</button>
             </div>
 

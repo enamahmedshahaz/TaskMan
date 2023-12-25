@@ -40,15 +40,16 @@ export const router = createBrowserRouter([
             {
                 path: "manageTasks",
                 element: <ManageTasks></ManageTasks>
-                // loader: ({ params }) => fetch(`localhost/${params.postId}`)
             },
             {
                 path: "addTask",
                 element: <AddTask></AddTask>,
             },
             {
-                path: "editTask",
+                path: "editTask/:id",
                 element:  <EditTask></EditTask>,
+                loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`),
+
             },
         ],
     },
